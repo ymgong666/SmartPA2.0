@@ -16,6 +16,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 from datetime import timedelta
+from statsmodels.tsa.seasonal import seasonal_decompose
+from sklearn.preprocessing import MinMaxScaler
 
 
 @st.cache  ### significantly reduces the rerun time
