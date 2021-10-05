@@ -9,6 +9,7 @@ from pandas import read_csv
 from matplotlib import pyplot
 from numpy import polyfit
 from scipy import interpolate
+from tensorflow import keras
 from keras.models import load_model
 from numpy import loadtxt
 import pandas as pd
@@ -278,7 +279,7 @@ def create_layout(df,
         st.write("The yearly trend and weekly trend were both captured by all three models in different ways. We tested the accuracy of the three models by forecasting the volume in 2020 based on the data from 2017-2019. As a result, our self-trained LSTM model outperforms the Prophet by 3%% with a much faster runtime")
         today = datetime.date(2020, 10, 31)
         #today = datetime.date.today()
-        tomorrow = today + datetime.timedelta(days=90)
+        tomorrow = today + datetime.timedelta(days=200)
         start_date = st.date_input('Start date', today)
         end_date = st.date_input('End date', tomorrow)
 ##        if start_date < end_date:
@@ -290,12 +291,13 @@ def create_layout(df,
         Prophet = st.checkbox('PA Volume Predicted by Prophet')
         plot_data = pd.DataFrame()
         max_length = 300
+        PA_volume = np.array(volume)
         if LSTM:
             wave_model = load_model('wave_model.h5')
             weekly_model = load_model('weekly_model.h5')
             #### Prepare data
             look_forward_wave = 35
-            PA_volume = np.array(volume)
+            
             workdays = []
             for i in range(len(PA_volume)):
                 if i%7 <6 and i%7 > 0 :
@@ -355,7 +357,7 @@ def create_layout(df,
         if MLP:
             #### Generate a function for this method 
             #### calculate the PA volume
-            PA_volume = volume
+            
             #### Create the date stamp for PA volume
             Start_date = datetime.date(2018, 12, 31)
             datestamp = []
@@ -436,7 +438,7 @@ def create_layout(df,
             from prophet import Prophet
             period = 340
             Start_date = datetime.date(2018, 1, 1)
-            PA_volume = volume
+            
             datestamp = []
             for i in range(len(PA_volume)):
                 datestamp.append(Start_date)
