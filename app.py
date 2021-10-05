@@ -288,8 +288,8 @@ def create_layout(df,
         plot_data = pd.DataFrame()
         max_length = 300
         if LSTM:
-            wave_model = load_model('/Users/yiming/streamlit/streamlit_guide/wave_model.h5')
-            weekly_model = load_model('/Users/yiming/streamlit/streamlit_guide/weekly_model.h5')
+            wave_model = load_model('wave_model.h5')
+            weekly_model = load_model('weekly_model.h5')
             #### Prepare data
             look_forward_wave = 35
             PA_volume = np.array(volume)
@@ -389,8 +389,8 @@ def create_layout(df,
             #### Create training sets
             train_trend, label_trend = series_to_supervised(trend,Ntrain, Nlabel )
             #### Create MLP model
-            model = keras.models.load_model('/Users/yiming/streamlit/streamlit_guide/MLP_stationary')
-            model_trend = keras.models.load_model('/Users/yiming/streamlit/streamlit_guide/trend_model')
+            model = keras.models.load_model('MLP_stationary')
+            model_trend = keras.models.load_model('trend_model')
 
             # model_trend = Sequential()
             # model_trend.add(Dense(100, activation='relu', input_dim=Ntrain))
