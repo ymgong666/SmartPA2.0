@@ -19,6 +19,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 from datetime import timedelta
+from setuptools import find_packages, setup
+from setuptools.command.install import install
+from subprocess import check_call
+
+class PostInstallCommand(install):
+    def run(self):
+        check_call("conda install -c conda-forge fbprophet".split())
+        install.run(self)
+
+setup(
+   ...,
+   cmdclass={
+        "install": PostInstallCommand,
+    },
+   ...,
+)
 
 @st.cache  ### significantly reduces the rerun time
 def load_data():
