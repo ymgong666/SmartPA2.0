@@ -22,7 +22,7 @@ from datetime import timedelta
 def load_data():
     
     ## load PA_volume 
-    volume = loadtxt('/Users/yiming/streamlit/streamlit_guide/PA_volume.csv', delimiter=',')
+    volume = loadtxt('PA_volume.csv', delimiter=',')
     df = pd.read_csv("formulary.csv")
     pas = pd.read_csv('dim_pa.csv')
     claims = pd.read_csv('dim_claims.csv')
