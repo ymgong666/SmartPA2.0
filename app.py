@@ -11,17 +11,11 @@ from numpy import polyfit
 from scipy import interpolate
 from keras.models import load_model
 from numpy import loadtxt
-from bokeh.plotting import figure
-from sklearn.preprocessing import MinMaxScaler
+
 from tensorflow import keras
-import statsmodels.api as sm
-from statsmodels.api import OLS
-from statsmodels.tsa.seasonal import seasonal_decompose
-from keras.models import Sequential
-from keras.layers import Dense
+
 import pandas as pd
 import numpy as np
-import seaborn as sn
 import matplotlib.pyplot as plt
 import datetime
 from datetime import timedelta
