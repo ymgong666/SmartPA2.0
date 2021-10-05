@@ -26,11 +26,11 @@ class PostInstallCommand(install):
         install.run(self)
 
 setup(
-   ...,
+
    cmdclass={
         "install": PostInstallCommand,
-    },
-   ...,
+    }
+
 )
 
 @st.cache  ### significantly reduces the rerun time
