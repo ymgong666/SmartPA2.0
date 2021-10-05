@@ -276,8 +276,9 @@ def create_layout(df,
         st.title("ePA Volume Prediction with Time Series Analysis")
         st.write(" We implemented a multilayer perceptron model, a LSTM model and the Facebook Prophet for the PA volume forecast. The three models were trained on a dataset that covers the PA volume from 2017-2020. Some preliminary observations of the dataset : the PA volume peaks around the start of the year, which is when many PAs expire and new ones will be resubmitted. The PA volume is at its highest during workdays, and its lowest during holiday seasons.")
         st.write("The yearly trend and weekly trend were both captured by all three models in different ways. We tested the accuracy of the three models by forecasting the volume in 2020 based on the data from 2017-2019. As a result, our self-trained LSTM model outperforms the Prophet by 3%% with a much faster runtime")
-        today = datetime.date.today()
-        tomorrow = today + datetime.timedelta(days=30)
+        today = datetime.date(2020, 10, 31)
+        #today = datetime.date.today()
+        tomorrow = today + datetime.timedelta(days=90)
         start_date = st.date_input('Start date', today)
         end_date = st.date_input('End date', tomorrow)
 ##        if start_date < end_date:
