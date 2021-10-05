@@ -11,9 +11,6 @@ from numpy import polyfit
 from scipy import interpolate
 from keras.models import load_model
 from numpy import loadtxt
-
-from tensorflow import keras
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
